@@ -1,0 +1,33 @@
+{% extends "tutorial/layout.html" %}
+{% block content %}
+<section id="calendar">
+    <div class="container d-flex align-items-center align-items-center flex-column mt-5">
+        <!-- <h1>Calendar</h1> -->
+        <a href="/calendar/new" class="btn btn-primary mb-3">New event</a>
+        <div class="d-grid gap-2 d-md-flex justify-content-md-center">
+        </div>
+        <table class="table text-white">
+            <thead class="bg-primary text-white">
+                <tr>
+                    <th scope="col">Organizer</th>
+                    <th scope="col">Subject</th>
+                    <th scope="col">Start</th>
+                    <th scope="col">End</th>
+                </tr>
+            </thead>
+            <tbody style="background-color:#2c3e50;">
+                {% if events %}
+                {% for event in events %}
+                <tr>
+                    <td>{{ event.organizer.emailAddress.name }}</td>
+                    <td>{{ event.subject }}</td>
+                    <td>{{ event.start.dateTime|date:'n/d/Y g:i A' }}</td>
+                    <td>{{ event.end.dateTime|date:'n/d/Y g:i A' }}</td>
+                </tr>
+                {% endfor %}
+                {% endif %}
+            </tbody>
+    </div>
+    </table>
+</section>
+{% endblock %}

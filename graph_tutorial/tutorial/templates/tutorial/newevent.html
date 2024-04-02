@@ -1,0 +1,35 @@
+{% extends "tutorial/layout.html" %}
+{% block content %}
+<section class="d-flex flex-colum" id="new_event">
+    <!-- <div class="container d-flex align-items-center flex-column mt-5"> -->
+    <div class="container align-items-center align-items-center flex-column mt-5">
+        <h1>New event</h1>
+        <form method="POST" class="mb-3">
+            {% csrf_token %}
+            <label>Subject</label>
+            <input class="form-control my-2" name="ev-subject" type="text">
+            <label>Attendees</label>
+            <input class="form-control my-2" name="ev-attendees" type="text"
+                placeholder="Separate multiple email addresses with a semicolon (';')">
+            <div class="row">
+                <div class="col-6">
+                    <label>Start</label>
+                    <input class="form-control my-2" name="ev-start" type="datetime-local">
+                </div>
+                <div class="col-6">
+                    <label>End</label>
+                    <input class="form-control my-2" name="ev-end" type="datetime-local">
+                </div>
+            </div>
+            <div class="mb-3">
+                <label>Event</label>
+                <textarea class="form-control my-2" name="ev-body" rows="3"></textarea>
+            </div>
+            <div class="text-end">
+                <input class="btn btn-primary mr-2" type="submit" value="Create" />
+                <a class="btn btn-secondary" href="/calendar">Cancel</a>
+            </div>
+        </form>
+    </div>
+</section>
+{% endblock %}
