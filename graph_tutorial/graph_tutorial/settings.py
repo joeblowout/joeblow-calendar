@@ -23,9 +23,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-^n&2c=oa_)l_gpaxt&0)q+j5_z157*f&6v!l)k)&d5s1j6)c8w'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['*'] #[]
+ALLOWED_HOSTS = ['calendar.joeblowout.cf'] #[]
 
 
 # Application definition
